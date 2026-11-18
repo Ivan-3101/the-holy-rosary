@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Prayers of the Rosary &amp; the Litany of Loreto — The Holy Rosary</title>
+  <meta name="description" content="Every prayer of the Holy Rosary in English and Latin: the Apostles’ Creed, Our Father, Hail Mary, Glory Be, Fatima Prayer, Hail Holy Queen, the Litany of Loreto, St. Michael, the Memorare and more.">
+  <meta name="theme-color" content="#f7f2e7">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Prayers of the Rosary &amp; the Litany of Loreto">
+  <meta property="og:description" content="Every prayer of the Holy Rosary in English and Latin, including the Hail, Holy Queen and the Litany of Loreto.">
+  <meta name="apple-mobile-web-app-title" content="Rosary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/eb-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var s=JSON.parse(localStorage.getItem('rosary.settings')||'{}'),d=document.documentElement;if(s.theme==='light'||s.theme==='dark')d.setAttribute('data-theme',s.theme);if(s.scale)d.style.setProperty('--scale',s.scale);}catch(e){}</script>
+</head>
+<body data-page="prayers">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="The Holy Rosary — home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.6 2h2.8v5.6H19v2.8h-5.6V22h-2.8V10.4H5V7.6h5.6z" fill="currentColor"/></svg></span>
+        <span>The Holy Rosary</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="pray.html">Pray</a>
+        <a href="prayers.html" aria-current="page">Prayers</a>
+        <a href="mysteries.html">Mysteries</a>
+        <a href="how-to-pray.html">How to Pray</a>
+      </nav>
+      <button class="icon-btn" id="settings-btn" type="button" aria-label="Settings: theme, text size and language" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <header class="page-head wrap">
+      <p class="eyebrow">In English &amp; Latin</p>
+      <h1>Prayers of the Rosary</h1>
+      <p class="lede">Every prayer of the Holy Rosary, from the Sign of the Cross to the Hail, Holy Queen, the Litany of Loreto, and the prayers that follow the five decades.</p>
+      <div class="ornament" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.6 2h2.8v5.6H19v2.8h-5.6V22h-2.8V10.4H5V7.6h5.6z" fill="currentColor"/></svg></div>
+    </header>
+
+    <div class="wrap">
+      <nav class="toc" id="toc" aria-label="Prayers on this page"></nav>
+      <p class="legend"><span><span class="swatch" aria-hidden="true"></span>When praying together, the leader says the first part and everyone answers with the part marked by the gold line.</span></p>
+      <p class="legend no-print"><button class="btn btn-quiet" type="button" data-open-settings>Show in Latin, side by side, or in larger text</button></p>
+      <div id="prayer-list">
+        <noscript><p class="noscript">Please enable JavaScript to show the prayers.</p></noscript>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="motto">Ad Iesum per Mariam</p>
+      <nav aria-label="Footer">
+        <a href="pray.html">Pray the Rosary</a>
+        <a href="prayers.html">Prayers</a>
+        <a href="prayers.html#litany">Litany of Loreto</a>
+        <a href="mysteries.html">Mysteries</a>
+        <a href="how-to-pray.html">How to Pray</a>
+      </nav>
+      <p>To Jesus through Mary. Our Lady of the Most Holy Rosary, pray for us.</p>
+      <p>Scripture quotations from the Douay-Rheims Bible (public domain).</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

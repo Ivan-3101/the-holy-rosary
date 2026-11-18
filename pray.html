@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Pray the Rosary — The Holy Rosary</title>
+  <meta name="description" content="Pray the Holy Rosary step by step, bead by bead, with the mysteries of the day, the Hail, Holy Queen and the Litany of Loreto.">
+  <meta name="theme-color" content="#f7f2e7">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pray the Holy Rosary">
+  <meta property="og:description" content="Pray along bead by bead, with today’s mysteries and the Litany of Loreto.">
+  <meta name="apple-mobile-web-app-title" content="Rosary">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="preload" href="fonts/eb-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/cormorant-garamond-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/style.css">
+  <script>try{var s=JSON.parse(localStorage.getItem('rosary.settings')||'{}'),d=document.documentElement;if(s.theme==='light'||s.theme==='dark')d.setAttribute('data-theme',s.theme);if(s.scale)d.style.setProperty('--scale',s.scale);}catch(e){}</script>
+</head>
+<body data-page="pray">
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="The Holy Rosary — home">
+        <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.6 2h2.8v5.6H19v2.8h-5.6V22h-2.8V10.4H5V7.6h5.6z" fill="currentColor"/></svg></span>
+        <span>The Holy Rosary</span>
+      </a>
+      <nav class="site-nav" aria-label="Main">
+        <a href="pray.html" aria-current="page">Pray</a>
+        <a href="prayers.html">Prayers</a>
+        <a href="mysteries.html">Mysteries</a>
+        <a href="how-to-pray.html">How to Pray</a>
+      </nav>
+      <button class="icon-btn" id="settings-btn" type="button" aria-label="Settings: theme, text size and language" aria-haspopup="dialog">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M4 7h9M17 7h3M4 17h3M11 17h9"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <noscript><p class="noscript">The guided Rosary needs JavaScript. You can still read every prayer on the <a href="prayers.html">Prayers</a> page.</p></noscript>
+
+    <!-- 1. Choose the mysteries and prayers -->
+    <section id="setup" class="setup">
+      <div class="narrow">
+        <p class="eyebrow" id="setup-date">Today</p>
+        <h1>Pray the Holy Rosary</h1>
+        <p class="lede">Choose the mysteries and the prayers to include, then pray along bead by bead. Your place is saved as you go.</p>
+
+        <div class="card resume-card" id="resume" hidden style="margin-bottom:1.8rem">
+          <div>
+            <p class="eyebrow">Continue praying</p>
+            <p class="resume-title" id="resume-title"></p>
+            <p class="resume-sub" id="resume-sub"></p>
+          </div>
+          <div class="resume-actions">
+            <button type="button" class="btn btn-primary" id="resume-btn">Resume</button>
+            <button type="button" class="btn" id="discard-btn">Start over</button>
+          </div>
+        </div>
+
+        <form id="setup-form">
+          <fieldset>
+            <legend>The mysteries</legend>
+            <div class="set-options" id="set-options"></div>
+          </fieldset>
+          <fieldset>
+            <legend>Prayers to include</legend>
+            <div class="toggles" id="toggles"></div>
+          </fieldset>
+          <div class="field">
+            <label class="field-label" for="intention">Your intention (optional)</label>
+            <input type="text" id="intention" maxlength="140" placeholder="For whom or for what are you praying?" autocomplete="off">
+            <p class="hint">Shown while you pray. It stays on this device only.</p>
+          </div>
+          <div class="begin-row">
+            <button type="submit" class="btn btn-primary btn-lg">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+              Begin the Rosary
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 2. Praying, bead by bead -->
+    <section id="session" hidden aria-label="Praying the Rosary">
+      <div class="wrap pray-grid">
+        <aside class="pray-side" aria-label="Your progress">
+          <div class="rosary-wrap" id="rosary-main"></div>
+          <p class="side-set" id="side-set"></p>
+          <ol class="side-list" id="side-list"></ol>
+          <div class="side-progress">
+            <div class="bar"><span id="side-bar"></span></div>
+            <p><span id="side-count"></span><span id="side-pct"></span></p>
+          </div>
+          <p class="side-intention" id="side-intention" hidden></p>
+        </aside>
+
+        <article class="pray-main" id="pray-main">
+          <header class="step-head">
+            <div class="mini-rosary" id="rosary-mini" aria-hidden="true"></div>
+            <div class="step-head-text">
+              <p class="eyebrow step-sec" id="step-sec"></p>
+              <h1 class="step-title" id="step-title"></h1>
+              <div class="dots" id="step-dots" hidden></div>
+            </div>
+            <button type="button" class="icon-btn step-exit" id="exit-btn" aria-label="Pause and leave the Rosary (your place is saved)" title="Pause (your place is saved)">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+            </button>
+          </header>
+
+          <div class="card step-card" id="step-card"></div>
+
+          <nav class="step-nav" aria-label="Move between prayers">
+            <span class="nav-progress" id="nav-progress"></span>
+            <button type="button" class="btn" id="prev-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+              Back
+            </button>
+            <span class="step-count" id="step-count"></span>
+            <button type="button" class="btn btn-primary" id="next-btn">Next</button>
+          </nav>
+          <p class="kbd-hint">Tip: use the ← → arrow keys or the space bar to move between prayers.</p>
+          <p class="sr-only" id="live" aria-live="polite"></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3. Finished -->
+    <section id="done" class="done" hidden>
+      <div class="narrow">
+        <div class="done-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10.6 2h2.8v5.6H19v2.8h-5.6V22h-2.8V10.4H5V7.6h5.6z" fill="currentColor"/></svg></div>
+        <h1 tabindex="-1">Amen.</h1>
+        <p>Your Rosary is complete. Our Lady of the Most Holy Rosary, pray for us.</p>
+        <p class="step-intention" id="done-intention" hidden></p>
+        <div class="actions">
+          <button class="btn btn-primary" id="again-btn" type="button">Pray again</button>
+          <a class="btn" href="prayers.html">All prayers</a>
+          <a class="btn" href="index.html">Home</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p class="motto">Ad Iesum per Mariam</p>
+      <nav aria-label="Footer">
+        <a href="pray.html">Pray the Rosary</a>
+        <a href="prayers.html">Prayers</a>
+        <a href="prayers.html#litany">Litany of Loreto</a>
+        <a href="mysteries.html">Mysteries</a>
+        <a href="how-to-pray.html">How to Pray</a>
+      </nav>
+      <p>To Jesus through Mary. Our Lady of the Most Holy Rosary, pray for us.</p>
+      <p>Scripture quotations from the Douay-Rheims Bible (public domain).</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/pray.js"></script>
+</body>
+</html>
