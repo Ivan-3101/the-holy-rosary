@@ -3,6 +3,7 @@
 A website for praying the Catholic Rosary, bead by bead.
 
 **Live:** https://the-holy-rosary.vercel.app
+**Source:** https://github.com/Ivan-3101/the-holy-rosary
 
 - **Pray** (`pray.html`): a guided Rosary with an interactive diagram of the beads. Today's mysteries are chosen automatically (Mon & Sat Joyful · Tue & Fri Sorrowful · Wed & Sun Glorious · Thu Luminous, with the customary Joyful on Sundays of Advent/Christmastide and Sorrowful on Sundays of Lent). Your place is saved, so you can stop and resume.
 - **Prayers** (`prayers.html`): every prayer, in English and Latin. This includes the prayers after the five decades: the Hail, Holy Queen, the concluding prayer, the **Litany of the Blessed Virgin Mary (Loreto)**, We Fly to Thy Protection, St. Michael, the Memorare and the prayers for the Holy Father's intentions.
@@ -32,13 +33,14 @@ You can also just open `index.html` in a browser.
 
 **Vercel**
 
-This folder is already linked to the Vercel project `the-holy-rosary`. To publish changes:
+This GitHub repository is connected to the Vercel project `the-holy-rosary`. **Every push to `main` deploys to https://the-holy-rosary.vercel.app automatically.** Pushes to other branches get their own preview links.
 
 ```bash
-npx vercel --prod     # from this folder (run `npx vercel login` first if asked)
+git add -A && git commit -m "Describe the change"
+git push              # the live site updates about a minute later
 ```
 
-Or push this folder to GitHub and import the repository at https://vercel.com/new. Each push then deploys automatically.
+To deploy straight from this folder without GitHub, run `npx vercel --prod` (run `npx vercel login` first if asked).
 
 **Other free hosts.** Netlify (drag the folder onto https://app.netlify.com/drop), Cloudflare Pages and GitHub Pages all work as-is.
 
